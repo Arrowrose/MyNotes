@@ -15,8 +15,9 @@
       app:queryHint="Enter text..."
       app:iconifiedByDefault="false"
       android:layout_alignParentTop="true"
-      android:background="@color/grey"
+      android:background="@drawable/bg_white_rounded"
       android:layout_width="match_parent"
+
       android:layout_height="?attr/actionBarSize"/>
 
   <androidx.recyclerview.widget.RecyclerView

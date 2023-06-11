@@ -36,9 +36,9 @@
             <ImageView
                 android:id="@+id/imageView_pin"
                 android:layout_alignParentEnd="true"
-                android:src="@drawable/pin_icon"
-                android:layout_width="20dp"
-                android:layout_height="20dp"/>
+                android:src="@drawable/ic_pin"
+                android:layout_width="24dp"
+                android:layout_height="24dp"/>
 
         </RelativeLayout>
 

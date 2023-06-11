@@ -8,7 +8,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.view.menu.MenuView;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -52,7 +51,7 @@ public class NotesListAdapter extends  RecyclerView.Adapter <NotesViewHolder> {
         holder.textView_date.setSelected(true);
 
         if (list.get(position).getPinned()) {
-            holder.imageView_pin.setImageResource(R.drawable.pin_icon);
+            holder.imageView_pin.setImageResource(R.drawable.ic_pin);
         }
         else {
             holder.imageView_pin.setImageResource(0);

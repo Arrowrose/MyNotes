@@ -54,7 +54,7 @@ public class NotesTakerActivity extends AppCompatActivity {
                     Toast.makeText(NotesTakerActivity.this, "Please enter description", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                SimpleDateFormat formater = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss");
+                SimpleDateFormat formater = new SimpleDateFormat("EEE, d MMM yyyy HH:mm");
                 Date date = new Date();
 
                 if (!isOldNote) {

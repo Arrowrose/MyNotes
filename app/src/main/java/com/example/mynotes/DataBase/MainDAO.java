@@ -17,7 +17,10 @@ public interface MainDAO {
     @Insert (onConflict = REPLACE)
      void insert (Notes notes);
 
-    @Query("SELECT * FROM notes ORDER BY ID DESC")
+    ////@Query("SELECT * FROM notes ORDER BY ID DESC")
+    /////List<Notes> getAll();
+
+    @Query("SELECT * FROM notes WHERE pinned = true UNION SELECT * FROM notes ORDER BY pinned DESC, ID DESC")
     List<Notes> getAll();
 
     @Query("UPDATE notes SET title = :title, notes = :notes WHERE ID = :ID")
