@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -18,7 +19,8 @@ import java.util.Date;
 public class NotesTakerActivity extends AppCompatActivity {
 
     EditText editText_title, editText_notes;
-    ImageView imageView_save;
+    Button btn_save;
+    ImageView imageView_menu, imageView_back;
     Notes notes;
     boolean isOldNote = false;
 
@@ -29,8 +31,10 @@ public class NotesTakerActivity extends AppCompatActivity {
 
         editText_title = findViewById(R.id.editText_title);
         editText_notes = findViewById(R.id.editText_notes);
+        btn_save = findViewById(R.id.btn_save);
 
-        imageView_save = findViewById(R.id.imageView_save);
+        imageView_menu = findViewById(R.id.imageView_menu);
+        imageView_back = findViewById(R.id.imageView_back);
 
         notes = new Notes();
         try {
@@ -43,7 +47,7 @@ public class NotesTakerActivity extends AppCompatActivity {
         }
 
 
-        imageView_save.setOnClickListener(new View.OnClickListener() {
+        btn_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String title = editText_title.getText().toString();
@@ -69,6 +73,14 @@ public class NotesTakerActivity extends AppCompatActivity {
                 intent.putExtra("notes", notes);
                 setResult(Activity.RESULT_OK, intent);
 
+                finish();
+            }
+        });
+
+        imageView_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent (NotesTakerActivity.this, MainActivity.class);
                 finish();
             }
         });
