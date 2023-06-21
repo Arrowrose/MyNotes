@@ -1,26 +1,32 @@
 package com.example.mynotes;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.appcompat.widget.SearchView;
 import androidx.cardview.widget.CardView;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import androidx.room.Room;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.mynotes.Adapter.NotesListAdapter;
 import com.example.mynotes.DataBase.RoomDB;
 import com.example.mynotes.Models.Notes;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,8 +35,10 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
 
     RecyclerView recyclerView;
+    Button menu_btn;
     FloatingActionButton fab_add;
     NotesListAdapter notesListAdapter;
+    NavigationView nav_view;
     RoomDB database;
     List<Notes> notes = new ArrayList<>();
     SearchView searchView_home;
@@ -40,6 +48,51 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        DrawerLayout myDrawerLayout = findViewById(R.id.drawer_layout_id);
+
+        menu_btn = findViewById(R.id.menu_btn);
+        menu_btn.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("WrongConstant")
+            @Override
+            public void onClick(View v) {
+                if(!myDrawerLayout.isDrawerOpen(Gravity.START)) myDrawerLayout.openDrawer(Gravity.START);
+                else myDrawerLayout.closeDrawer(Gravity.END);
+
+            }
+        });
+
+        nav_view = findViewById(R.id.nav_view_id);
+        nav_view.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @SuppressLint("WrongConstant")
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id = item.getItemId();
+                switch (id){
+                    case R.id.profile_btn:
+                        Intent intent_p = new Intent(MainActivity.this, ProfileActivity.class);
+                        Toast.makeText(MainActivity.this, "Профиль", Toast.LENGTH_SHORT).show();
+                        myDrawerLayout.closeDrawer(Gravity.END);
+                        return  true;
+                    case R.id.googleD_btn:
+                        Intent intent_g = new Intent(MainActivity.this, GoogleDiskActivity.class);
+                        Toast.makeText(MainActivity.this, "Google диск", Toast.LENGTH_SHORT).show();
+                        myDrawerLayout.closeDrawer(Gravity.END);
+                        return  true;
+                    case R.id.yandexD_btn:
+                        Intent intent_y = new Intent(MainActivity.this, YandexDiskActivity.class);
+                        Toast.makeText(MainActivity.this, "Yandex диск", Toast.LENGTH_SHORT).show();
+                        myDrawerLayout.closeDrawer(Gravity.END);
+                        return  true;
+                    case R.id.notes_btn:
+                        Intent intent_n = new Intent(MainActivity.this, MainActivity.class);
+                        Toast.makeText(MainActivity.this, "Заметки", Toast.LENGTH_SHORT).show();
+                        myDrawerLayout.closeDrawer(Gravity.END);
+                        return  true;
+                }
+                return false;
+            }
+        });
 
         recyclerView = findViewById(R.id.recycler_home);
         fab_add = findViewById(R.id.fab_add);

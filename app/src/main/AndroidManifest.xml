@@ -21,6 +21,30 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".ProfileActivity"
+            android:theme="@style/Theme.MyNotes.NoActionBar"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".GoogleDiskActivity"
+            android:theme="@style/Theme.MyNotes.NoActionBar"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".YandexDiskActivity"
+            android:theme="@style/Theme.MyNotes.NoActionBar"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
