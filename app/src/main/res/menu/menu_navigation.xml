@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/profile"
+        android:title="Профиль"
+        android:icon="@drawable/ic_profile"/>
+    <item
+        android:id="@+id/googleD"
+        android:title="Google диск"
+        android:icon="@drawable/ic_gc"/>
+
+    <item
+        android:id="@+id/yandexD"
+        android:title="Yandex диск"
+        android:icon="@drawable/ic_yc"/>
+
+    <item
+        android:id="@+id/notes_list"
+        android:title="Заметки"
+        android:icon="@drawable/ic_notes"/>
+</menu>

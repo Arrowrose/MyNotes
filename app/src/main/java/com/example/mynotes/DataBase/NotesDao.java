@@ -12,19 +12,16 @@ import com.example.mynotes.Models.Notes;
 import java.util.List;
 
 @Dao
-public interface MainDAO {
+public interface NotesDao {
 
-    @Insert (onConflict = REPLACE)
-     void insert (Notes notes);
+    @Insert(onConflict = REPLACE)
+    void insert (Notes notes);
 
-    ////@Query("SELECT * FROM notes ORDER BY ID DESC")
-    /////List<Notes> getAll();
-
-    @Query("SELECT * FROM notes WHERE pinned = true UNION SELECT * FROM notes ORDER BY pinned DESC, ID DESC")
+    @Query("SELECT * FROM notes WHERE pinned = 'true' UNION SELECT * FROM notes ORDER BY pinned DESC, ID DESC")
     List<Notes> getAll();
 
-    @Query("UPDATE notes SET title = :title, notes = :notes WHERE ID = :ID")
-    void update (int ID, String title, String notes);
+    @Query("UPDATE notes SET title = :title, notes = :notes, userId = :userId WHERE ID = :ID")
+    void update (int ID, int userId, String title, String notes);
 
     @Delete
     void delete (Notes notes);

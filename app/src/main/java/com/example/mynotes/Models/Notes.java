@@ -3,14 +3,20 @@ package com.example.mynotes.Models;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+import androidx.room.ForeignKey;
 
 import java.io.Serializable;
 
-@Entity (tableName = "notes")
+@Entity (tableName = "notes", foreignKeys = @ForeignKey(entity= User.class, parentColumns="id", childColumns="userId", onDelete=ForeignKey.CASCADE))
 public class Notes implements Serializable {
+
 
     @PrimaryKey(autoGenerate = true)
     int ID = 0;
+
+    @ColumnInfo (name = "userId")
+    public
+    int userId;
 
     @ColumnInfo (name = "title")
     String title = "";
@@ -60,7 +66,17 @@ public class Notes implements Serializable {
         return pinned;
     }
 
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
     public void setPinned(Boolean pinned) {
         this.pinned = pinned;
     }
+
 }
+

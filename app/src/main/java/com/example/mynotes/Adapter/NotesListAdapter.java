@@ -12,6 +12,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mynotes.Models.Notes;
+
 import com.example.mynotes.NotesClickListener;
 import com.example.mynotes.R;
 
@@ -77,11 +78,7 @@ public class NotesListAdapter extends  RecyclerView.Adapter <NotesViewHolder> {
 
     private int getRandomColor() {
         List <Integer> colorCode = new ArrayList<>();
-        colorCode.add(R.color.color1);
-        colorCode.add(R.color.color2);
-        colorCode.add(R.color.color3);
-        colorCode.add(R.color.color4);
-        colorCode.add(R.color.color5);
+        colorCode.add(R.color.color6);
 
         Random random = new Random();
         int random_color = random.nextInt(colorCode.size());
@@ -105,6 +102,7 @@ class NotesViewHolder extends RecyclerView.ViewHolder {
     CardView notes_container;
     TextView textView_title, textView_notes, textView_date;
     ImageView imageView_pin;
+
 
     public NotesViewHolder(@NonNull View itemView) {
         super(itemView);

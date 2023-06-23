@@ -6,15 +6,19 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
+import com.example.mynotes.Models.Image;
+import com.example.mynotes.Models.NoteImage;
 import com.example.mynotes.Models.Notes;
+import com.example.mynotes.Models.ProfilePhoto;
+import com.example.mynotes.Models.User;
 
-@Database(entities = Notes.class, version = 1, exportSchema = false)
-public abstract class RoomDB extends RoomDatabase {
+@Database(entities = {Notes.class, User.class, ProfilePhoto.class, Image.class, NoteImage.class}, version = 3, exportSchema = false)
+public abstract class RoomDB  extends RoomDatabase {
 
     private static RoomDB database;
-    private static String DATABASE_NAME = "NoteApp";
+    private static String DATABASE_NAME = "Stelp";
 
-    public synchronized static RoomDB getInstance(Context context){
+    public synchronized  static RoomDB getInstance(Context context) {
         if (database == null) {
             database = Room.databaseBuilder(context.getApplicationContext(), RoomDB.class, DATABASE_NAME)
                     .allowMainThreadQueries()
@@ -24,5 +28,13 @@ public abstract class RoomDB extends RoomDatabase {
         return database;
     }
 
-    public abstract MainDAO mainDAO();
+    public abstract UserDao userDao();
+
+    public abstract ProfilePhotoDao profilePhotoDao();
+
+    public abstract  NotesDao notesDao();
+
+    public abstract  ImageDao imageDao();
+
+    public abstract NoteImageDao noteImageDao();
 }

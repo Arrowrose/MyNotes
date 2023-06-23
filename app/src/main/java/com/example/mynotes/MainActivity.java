@@ -1,5 +1,6 @@
 package com.example.mynotes;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.PopupMenu;
@@ -8,7 +9,6 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
-import androidx.room.Room;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -20,17 +20,18 @@ import android.widget.Toast;
 import com.example.mynotes.Adapter.NotesListAdapter;
 import com.example.mynotes.DataBase.RoomDB;
 import com.example.mynotes.Models.Notes;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
 
     RecyclerView recyclerView;
     FloatingActionButton fab_add;
     NotesListAdapter notesListAdapter;
+
     RoomDB database;
     List<Notes> notes = new ArrayList<>();
     SearchView searchView_home;
@@ -41,13 +42,41 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_navigation);
+
+        bottomNavigationView.setSelectedItemId(R.id.notes_list);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch(item.getItemId())
+                {
+                    case R.id.profile:
+                        startActivity(new Intent(getApplicationContext(),ProfileActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.notes_list:
+                        return true;
+                    case R.id.googleD:
+                        startActivity(new Intent(getApplicationContext(),GoogleDiskActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.yandexD:
+                        startActivity(new Intent(getApplicationContext(),YandexDiskActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                }
+                return false;
+            }
+        });
+
+
         recyclerView = findViewById(R.id.recycler_home);
         fab_add = findViewById(R.id.fab_add);
 
         searchView_home = findViewById(R.id.searchView_home);
 
         database = RoomDB.getInstance(this);
-        notes = database.mainDAO().getAll();
+        notes = database.notesDao().getAll();
 
         updateRecycler(notes);
 
@@ -91,18 +120,18 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         if (requestCode == 101) {
             if (resultCode == Activity.RESULT_OK) {
                 Notes new_notes = (Notes) data.getSerializableExtra("notes");
-                database.mainDAO().insert(new_notes);
+                database.notesDao().insert(new_notes);
                 notes.clear();
-                notes.addAll(database.mainDAO().getAll());
+                notes.addAll(database.notesDao().getAll());
                 notesListAdapter.notifyDataSetChanged();
             }
         }
         if (requestCode == 102) {
             if (resultCode == Activity.RESULT_OK) {
                 Notes new_notes = (Notes) data.getSerializableExtra("notes");
-                database.mainDAO().update(new_notes.getID(), new_notes.getTitle(), new_notes.getNotes());
+                database.notesDao().update(new_notes.getID(), new_notes.getUserId(),new_notes.getTitle(), new_notes.getNotes());
                 notes.clear();
-                notes.addAll(database.mainDAO().getAll());
+                notes.addAll(database.notesDao().getAll());
                 notesListAdapter.notifyDataSetChanged();
             }
         }
@@ -110,7 +139,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
     private void updateRecycler(List<Notes> notes) {
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL));
+        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(1, LinearLayoutManager.VERTICAL));
         notesListAdapter = new NotesListAdapter(MainActivity.this,notes,notesClickListener);
         recyclerView.setAdapter(notesListAdapter);
     }
@@ -143,22 +172,22 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         switch (item.getItemId()) {
             case R.id.pin:
                 if (selectedNote.getPinned()) {
-                    database.mainDAO().pin(selectedNote.getID(), false);
-                    Toast.makeText(MainActivity.this, "Unpinned", Toast.LENGTH_SHORT).show();
+                    database.notesDao().pin(selectedNote.getID(), false);
+                    Toast.makeText(MainActivity.this, "Открепленно", Toast.LENGTH_SHORT).show();
                 } else {
-                    database.mainDAO().pin(selectedNote.getID(), true);
-                    Toast.makeText(MainActivity.this, "Pinned", Toast.LENGTH_SHORT).show();
+                    database.notesDao().pin(selectedNote.getID(), true);
+                    Toast.makeText(MainActivity.this, "Прикреплено", Toast.LENGTH_SHORT).show();
                 }
                 notes.clear();
-                notes.addAll(database.mainDAO().getAll());
+                notes.addAll(database.notesDao().getAll());
                 notesListAdapter.notifyDataSetChanged();
                 return true;
 
             case R.id.delete:
-                database.mainDAO().delete(selectedNote);
+                database.notesDao().delete(selectedNote);
                 notes.remove(selectedNote);
                 notesListAdapter.notifyDataSetChanged();
-                Toast.makeText(MainActivity.this, "Note removed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Заметка удалена", Toast.LENGTH_SHORT).show();
                 return true;
             default:
                 return false;

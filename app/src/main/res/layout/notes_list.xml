@@ -5,8 +5,7 @@
     android:layout_height="wrap_content"
     app:cardBackgroundColor="@color/white"
     app:cardCornerRadius="8dp"
-    android:layout_margin="8dp"
-    app:cardElevation="8dp"
+    android:layout_margin="6dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
@@ -16,29 +15,58 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="68dp">
 
             <TextView
                 android:id="@+id/textView_title"
-                android:layout_width="match_parent"
+                android:layout_width="364dp"
                 android:layout_height="wrap_content"
-                android:text="Title"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:padding="8dp"
                 android:layout_alignParentStart="true"
-                android:singleLine="true"
+                android:layout_marginStart="0dp"
                 android:ellipsize="marquee"
                 android:marqueeRepeatLimit="marquee_forever"
-                android:scrollHorizontally="true" />
+                android:orientation="horizontal"
+                android:padding="8dp"
+                android:scrollHorizontally="true"
+                android:singleLine="true"
+                android:text="Title"
+                android:textColor="@color/notes"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
 
             <ImageView
                 android:id="@+id/imageView_pin"
+                android:layout_width="38dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/textView_title"
                 android:layout_alignParentEnd="true"
-                android:src="@drawable/ic_pin"
-                android:layout_width="24dp"
-                android:layout_height="24dp"/>
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="6dp"
+                android:orientation="horizontal"
+                android:src="@drawable/ic_pin" />
+
+            <TextView
+                android:id="@+id/textView_date"
+                android:layout_width="235dp"
+                android:layout_height="33dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="-206dp"
+                android:layout_marginEnd="-26dp"
+                android:layout_marginBottom="0dp"
+                android:layout_toStartOf="@+id/imageView_pin"
+                android:layout_toEndOf="@+id/textView_title"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:maxLines="10"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                android:scrollHorizontally="true"
+                android:singleLine="true"
+                android:text="Date"
+                android:textColor="@color/notes"
+                android:textSize="14sp"
+                android:textStyle="normal" />
 
         </RelativeLayout>
 
@@ -46,27 +74,15 @@
             android:id="@+id/textView_notes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:maxLines="0"
+            android:padding="8dp"
             android:text="Notes text"
+            android:textColor="@color/notes"
             android:textSize="14sp"
             android:textStyle="normal"
-            android:textColor="@color/black"
-            android:padding="8dp"
-            android:maxLines="10"/>
+            android:visibility="invisible" />
 
-        <TextView
-            android:id="@+id/textView_date"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Notes text"
-            android:textSize="14sp"
-            android:textStyle="normal"
-            android:textColor="@color/grey"
-            android:padding="8dp"
-            android:maxLines="10"
-            android:ellipsize="marquee"
-            android:marqueeRepeatLimit="marquee_forever"
-            android:scrollHorizontally="true"
-            android:singleLine="true"/>
+
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
