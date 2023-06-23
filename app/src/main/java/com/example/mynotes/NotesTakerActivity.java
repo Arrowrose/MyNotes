@@ -19,7 +19,7 @@ import java.util.Date;
 public class NotesTakerActivity extends AppCompatActivity {
 
     EditText editText_title, editText_notes;
-    ImageView imageView_save, back_btn;
+    ImageView imageView_menu, back_btn;
     Button save_btn;
     Notes notes;
     boolean isOldNote = false;
@@ -34,7 +34,7 @@ public class NotesTakerActivity extends AppCompatActivity {
 
         save_btn = findViewById(R.id.save_btn);
 
-        imageView_save = findViewById(R.id.imageView_save);
+        imageView_menu = findViewById(R.id.imageView_menu);
 
         back_btn = findViewById(R.id.back_btn);
         back_btn.setOnClickListener(new View.OnClickListener() {

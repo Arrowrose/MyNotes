@@ -46,7 +46,7 @@
             android:layout_marginTop="20sp"
             android:layout_marginEnd="20sp"
             android:layout_marginBottom="10sp"
-            android:text="Регистрация"
+            android:text="РЕГИСТРАЦИЯ"
             android:textAlignment="center"
             android:textColor="@color/ic_launcher_background"
             android:textSize="25sp"
@@ -68,6 +68,7 @@
                     android:layout_marginTop="20sp"
                     android:layout_marginEnd="20sp"
                     android:layout_marginBottom="12dp"
+                    android:textSize="16sp"
                     android:background="@drawable/bg_white_rounded"
                     android:hint="Логин" />
 
@@ -80,6 +81,7 @@
                     android:layout_marginTop="20sp"
                     android:layout_marginEnd="20sp"
                     android:layout_marginBottom="12dp"
+                    android:textSize="16sp"
                     android:background="@drawable/bg_white_rounded"
                     android:hint="Адрес электронной почты" />
 
@@ -92,6 +94,7 @@
                     android:layout_marginTop="20sp"
                     android:layout_marginEnd="20sp"
                     android:layout_marginBottom="12dp"
+                    android:textSize="16sp"
                     android:background="@drawable/bg_white_rounded"
                     android:hint="Пароль"
                     android:inputType="textPassword" />
@@ -106,6 +109,8 @@
                     android:layout_marginBottom="12dp"
                     android:backgroundTint="#08DE9E"
                     android:text="ЗАРЕГИСТРИРОВАТЬСЯ"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
                     android:textColor="#5D5C5C"
                     app:cornerRadius="50dp" />
 

@@ -21,9 +21,31 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/imageView_save"
+                android:id="@+id/back_btn"
+                android:layout_width="?attr/actionBarSize"
+                android:layout_height="?attr/actionBarSize"
                 android:layout_alignParentEnd="true"
-                android:src="@drawable/ic_save"
+                android:layout_marginEnd="342dp"
+                android:background="@android:color/transparent"
+                android:padding="6dp"
+                android:src="@drawable/ic_back" />
+
+            <Button
+                android:id="@+id/save_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="66dp"
+                android:layout_toStartOf="@+id/imageView_menu"
+                android:backgroundTint="#4FBEC3"
+                android:text="Сохранить"
+                android:textColor="@color/grey"
+                android:textStyle="bold"
+                app:cornerRadius="50dp" />
+
+            <ImageView
+                android:id="@+id/imageView_menu"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/ic_menu"
                 android:padding="6dp"
                 android:layout_width="?attr/actionBarSize"
                 android:layout_height="?attr/actionBarSize"

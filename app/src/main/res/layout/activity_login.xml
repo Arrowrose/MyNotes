@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    android:orientation="vertical"
+    tools:context=".RegistrationActivity">
+
+    <RelativeLayout
+        android:layout_width="370dp"
+        android:layout_height="203dp"
+        android:layout_margin="20dp">
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Headline"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleY="1"
+            android:text="STELP"
+            android:textAlignment="center"
+            android:textColor="@color/notes"
+            android:textSize="120sp"
+            android:textStyle="bold" />
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Headline"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleY="1"
+            android:text="STELP"
+            android:textAlignment="center"
+            android:textColor="@color/ic_launcher_background"
+            android:textSize="116sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+
+    <TextView
+        style="@style/TextAppearance.AppCompat.Headline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30sp"
+        android:layout_marginTop="20sp"
+        android:layout_marginEnd="20sp"
+        android:layout_marginBottom="10sp"
+        android:text="АВТОРИЗАЦИЯ"
+        android:textAlignment="center"
+        android:textColor="@color/ic_launcher_background"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="379dp"
+        android:layout_margin="20dp"
+        android:layout_marginBottom="25dp"
+        android:background="@drawable/bg_background">
+
+        <EditText
+            android:id="@+id/login"
+            android:layout_width="344dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20sp"
+            android:layout_marginTop="20sp"
+            android:layout_marginEnd="20sp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/bg_white_rounded"
+            android:hint="Логин или адрес электронной почты"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="344dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/login"
+            android:layout_marginStart="20sp"
+            android:layout_marginTop="35dp"
+            android:layout_marginEnd="20sp"
+            android:background="@drawable/bg_white_rounded"
+            android:hint="Пароль"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/reg_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="57dp"
+            android:backgroundTint="#08DE9E"
+            android:text="ВХОД"
+            android:textColor="#5D5C5C"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:cornerRadius="50dp" />
+
+    </RelativeLayout>
+
+</LinearLayout>
