@@ -48,11 +48,11 @@
 
             <TextView
                 android:id="@+id/textView_date"
-                android:layout_width="235dp"
+                android:layout_width="194dp"
                 android:layout_height="33dp"
                 android:layout_alignParentBottom="true"
-                android:layout_marginStart="-206dp"
-                android:layout_marginEnd="-26dp"
+                android:layout_marginStart="-160dp"
+                android:layout_marginEnd="-38dp"
                 android:layout_marginBottom="0dp"
                 android:layout_toStartOf="@+id/imageView_pin"
                 android:layout_toEndOf="@+id/textView_title"

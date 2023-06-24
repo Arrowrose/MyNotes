@@ -15,18 +15,18 @@
 
         <TextView
             style="@style/TextAppearance.AppCompat.Headline"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:scaleY="1"
             android:text="STELP"
             android:textAlignment="center"
-            android:textColor="@color/notes"
+            android:textColor="#1B64F4"
             android:textSize="120sp"
             android:textStyle="bold" />
 
         <TextView
             style="@style/TextAppearance.AppCompat.Headline"
-            android:layout_width="match_parent"
+            android:layout_width="360dp"
             android:layout_height="match_parent"
             android:scaleY="1"
             android:text="STELP"
@@ -61,40 +61,62 @@
 
         <EditText
             android:id="@+id/login"
-            android:layout_width="344dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20sp"
+            android:layout_width="310dp"
+            android:layout_height="60dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="28dp"
             android:layout_marginTop="20sp"
-            android:layout_marginEnd="20sp"
-            android:layout_marginBottom="12dp"
+            android:layout_marginEnd="33dp"
+            android:layout_marginBottom="14dp"
             android:background="@drawable/bg_white_rounded"
             android:hint="Логин или адрес электронной почты"
             android:textSize="16sp" />
 
         <EditText
             android:id="@+id/password"
-            android:layout_width="344dp"
-            android:layout_height="wrap_content"
+            android:layout_width="310dp"
+            android:layout_height="60dp"
             android:layout_below="@+id/login"
-            android:layout_marginStart="20sp"
-            android:layout_marginTop="35dp"
-            android:layout_marginEnd="20sp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="20sp"
+            android:layout_marginEnd="33dp"
             android:background="@drawable/bg_white_rounded"
             android:hint="Пароль"
             android:textSize="16sp" />
 
         <Button
-            android:id="@+id/reg_btn"
+            android:id="@+id/log_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="57dp"
+            android:layout_above="@+id/password"
+            android:layout_marginBottom="-164dp"
             android:backgroundTint="#08DE9E"
             android:text="ВХОД"
             android:textColor="#5D5C5C"
             android:textSize="20sp"
             android:textStyle="bold"
             app:cornerRadius="50dp" />
+
+
+        <Button
+            android:id="@+id/reg_btn"
+            android:layout_width="342dp"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="21dp"
+            android:layout_marginBottom="42dp"
+            android:background="@android:color/transparent"
+            android:text="Регистрация"
+            android:textAlignment="center"
+            android:textColor="@color/ic_launcher_background"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
     </RelativeLayout>
 

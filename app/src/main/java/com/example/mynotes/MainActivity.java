@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.example.mynotes.Adapter.NotesListAdapter;
 import com.example.mynotes.DataBase.RoomDB;
 import com.example.mynotes.Models.Notes;
+import com.example.mynotes.Models.User;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -75,6 +76,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
         searchView_home = findViewById(R.id.searchView_home);
 
+        //int userId = database.userDao().getUser(userId);
         database = RoomDB.getInstance(this);
         notes = database.notesDao().getAll();
 
@@ -120,6 +122,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         if (requestCode == 101) {
             if (resultCode == Activity.RESULT_OK) {
                 Notes new_notes = (Notes) data.getSerializableExtra("notes");
+                //User userId = (User) database.userDao().getAll();
                 database.notesDao().insert(new_notes);
                 notes.clear();
                 notes.addAll(database.notesDao().getAll());
@@ -129,7 +132,8 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         if (requestCode == 102) {
             if (resultCode == Activity.RESULT_OK) {
                 Notes new_notes = (Notes) data.getSerializableExtra("notes");
-                database.notesDao().update(new_notes.getID(), new_notes.getUserId(),new_notes.getTitle(), new_notes.getNotes());
+                //User userId = (User) database.userDao().getAll();
+                database.notesDao().update(new_notes.getID(),new_notes.getTitle(), new_notes.getNotes());
                 notes.clear();
                 notes.addAll(database.notesDao().getAll());
                 notesListAdapter.notifyDataSetChanged();
@@ -179,6 +183,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                     Toast.makeText(MainActivity.this, "Прикреплено", Toast.LENGTH_SHORT).show();
                 }
                 notes.clear();
+               //User userId = (User) database.userDao().getAll();
                 notes.addAll(database.notesDao().getAll());
                 notesListAdapter.notifyDataSetChanged();
                 return true;

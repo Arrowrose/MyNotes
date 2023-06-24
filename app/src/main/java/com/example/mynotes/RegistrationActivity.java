@@ -5,6 +5,7 @@ import static com.example.mynotes.DataBase.UserDao.*;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.RoomDatabase;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -48,6 +49,8 @@ public class RegistrationActivity extends AppCompatActivity {
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
+                                    startActivity(new Intent(
+                                            RegistrationActivity.this, LogInActivity.class));
                                     Toast.makeText(getApplicationContext(), "Вы зарегистрированы!", Toast.LENGTH_SHORT).show();
                                 }
                             });

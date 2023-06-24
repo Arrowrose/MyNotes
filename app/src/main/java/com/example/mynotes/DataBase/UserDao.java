@@ -18,11 +18,17 @@ public interface UserDao {
     @Insert
     void registerUser (User user);
 
-    @Query("SELECT * FROM users ORDER BY id DESC")
+    @Query("SELECT * FROM users ORDER BY userId DESC")
     List<User> getAll();
 
-    @Query("UPDATE users SET login = :login, password = :password, mail = :mail WHERE id = :id")
-    void update (int id, String login, String password, String mail);
+   //@Query("SELECT userId FROM users ORDER BY userId DESC")
+    //List<User> getUser(int userId);
+
+    @Query("SELECT * FROM users WHERE login = (:login) AND password = (:password)  UNION SELECT * FROM users WHERE mail = (:mail) AND password  - (:password)")
+    User login(String login, String password, String mail);
+
+    @Query("UPDATE users SET login = :login, password = :password, mail = :mail WHERE userId = :userId")
+    void update (int userId, String login, String password, String mail);
 
     @Delete
     void delete (User user);

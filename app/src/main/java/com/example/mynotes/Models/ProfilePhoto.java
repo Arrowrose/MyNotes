@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
 
-@Entity(tableName = "profilePhoto", foreignKeys = @ForeignKey(entity= User.class, parentColumns="id",
+@Entity(tableName = "profilePhoto", foreignKeys = @ForeignKey(entity= User.class, parentColumns="userId",
         childColumns="userId", onDelete=ForeignKey.CASCADE))
 public class ProfilePhoto implements Serializable {
 

@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mynotes.Models.Notes;
@@ -19,6 +20,7 @@ import java.util.Date;
 public class NotesTakerActivity extends AppCompatActivity {
 
     EditText editText_title, editText_notes;
+    TextView dateTextView;
     ImageView imageView_menu, back_btn;
     Button save_btn;
     Notes notes;
@@ -36,6 +38,16 @@ public class NotesTakerActivity extends AppCompatActivity {
 
         imageView_menu = findViewById(R.id.imageView_menu);
 
+        dateTextView = findViewById(R.id.dateTextView);
+
+        Date today = new Date();
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("y HH:mm     EEE, d MMM yyy");
+        String formattedDate = dateFormat.format(today);
+
+        // Установка отформатированной даты в TextView
+        dateTextView.setText(formattedDate);
+
         back_btn = findViewById(R.id.back_btn);
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,11 +57,10 @@ public class NotesTakerActivity extends AppCompatActivity {
             }
         });
 
-
-
         notes = new Notes();
         try {
             notes = (Notes) getIntent().getSerializableExtra("old_note");
+            //notes.setUserId(notes.userId);
             editText_title.setText(notes.getTitle());
             editText_notes.setText(notes.getNotes());
             isOldNote = true;
@@ -65,6 +76,7 @@ public class NotesTakerActivity extends AppCompatActivity {
                 String description = editText_notes.getText().toString();
 
 
+
                 if (description.isEmpty()) {
                     Toast.makeText(NotesTakerActivity.this, "Please enter description", Toast.LENGTH_SHORT).show();
                     return;
@@ -76,6 +88,7 @@ public class NotesTakerActivity extends AppCompatActivity {
                     notes = new Notes();
                 }
 
+                //notes.setUserId(notes.userId);
                 notes.setTitle(title);
                 notes.setNotes(description);
                 notes.setDate(formater.format(date));

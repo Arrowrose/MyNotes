@@ -13,7 +13,6 @@
         android:id="@+id/toolbar_notes"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:title="@string/app_name"
         app:titleTextColor="@color/white">
         
         <RelativeLayout
@@ -52,24 +51,46 @@
                 android:background="@android:color/transparent" />
         </RelativeLayout>
     </androidx.appcompat.widget.Toolbar>
-    
+
     <EditText
         android:id="@+id/editText_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Title:"
-        android:textColorHint="@color/white"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="60dp"
+        android:hint="Заголовок"
         android:padding="8dp"
-        android:textStyle="bold"
-        android:textSize="20sp"
+        android:singleLine="true"
         android:textColor="@color/white"
-        android:singleLine="true"/>
+        android:textColorHint="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/dateTextView"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/white" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/white" />
 
     <EditText
         android:id="@+id/editText_notes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter text:"
+        android:layout_margin="20dp"
+        android:hint="Ввод текста..."
         android:textColorHint="@color/white"
         android:padding="8dp"
         android:textStyle="normal"

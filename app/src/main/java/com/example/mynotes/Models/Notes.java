@@ -6,17 +6,17 @@ import androidx.room.PrimaryKey;
 import androidx.room.ForeignKey;
 
 import java.io.Serializable;
-
-@Entity (tableName = "notes", foreignKeys = @ForeignKey(entity= User.class, parentColumns="id", childColumns="userId", onDelete=ForeignKey.CASCADE))
+//, foreignKeys = @ForeignKey(entity= User.class, parentColumns="userId", childColumns="userId", onDelete=ForeignKey.CASCADE)
+@Entity (tableName = "notes")
 public class Notes implements Serializable {
 
 
     @PrimaryKey(autoGenerate = true)
     int ID = 0;
 
-    @ColumnInfo (name = "userId")
-    public
-    int userId;
+    //@ColumnInfo (name = "userId")
+    //public
+    //int userId;
 
     @ColumnInfo (name = "title")
     String title = "";
@@ -29,6 +29,17 @@ public class Notes implements Serializable {
 
     @ColumnInfo (name = "pinned")
     Boolean pinned = false;
+
+    @ColumnInfo(name = "isHighlighted")
+    Boolean isHighlighted;
+
+    public Boolean getHighlighted() {
+        return isHighlighted;
+    }
+
+    public void setHighlighted(Boolean highlighted) {
+        isHighlighted = highlighted;
+    }
 
     public int getID() {
         return ID;
@@ -66,13 +77,14 @@ public class Notes implements Serializable {
         return pinned;
     }
 
-    public int getUserId() {
-        return userId;
-    }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
+    //public int getUserId() {
+       // return userId;
+    //}
+
+   // public void setUserId(int userId) {
+       // this.userId = userId;
+    //}
 
     public void setPinned(Boolean pinned) {
         this.pinned = pinned;

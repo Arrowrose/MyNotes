@@ -10,7 +10,7 @@ import java.io.Serializable;
 public class User implements Serializable {
 
     @PrimaryKey(autoGenerate = true)
-    public int id = 0;
+    public int userId = 0;
 
     @ColumnInfo(name = "login")
     public String login = "";
@@ -24,11 +24,11 @@ public class User implements Serializable {
 
 
     public int getId() {
-        return id;
+        return userId;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.userId = userId;
     }
 
     public String getLogin() {

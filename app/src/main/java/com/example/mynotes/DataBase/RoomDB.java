@@ -12,7 +12,7 @@ import com.example.mynotes.Models.Notes;
 import com.example.mynotes.Models.ProfilePhoto;
 import com.example.mynotes.Models.User;
 
-@Database(entities = {Notes.class, User.class, ProfilePhoto.class, Image.class, NoteImage.class}, version = 3, exportSchema = false)
+@Database(entities = {Notes.class, User.class, ProfilePhoto.class, Image.class, NoteImage.class}, version = 1, exportSchema = false)
 public abstract class RoomDB  extends RoomDatabase {
 
     private static RoomDB database;
