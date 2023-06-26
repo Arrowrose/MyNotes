@@ -29,7 +29,7 @@
                 android:padding="8dp"
                 android:scrollHorizontally="true"
                 android:singleLine="true"
-                android:text="Title"
+                android:text="Заголовок"
                 android:textColor="@color/notes"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -63,7 +63,7 @@
                 android:padding="8dp"
                 android:scrollHorizontally="true"
                 android:singleLine="true"
-                android:text="Date"
+                android:text="Дата"
                 android:textColor="@color/notes"
                 android:textSize="14sp"
                 android:textStyle="normal" />

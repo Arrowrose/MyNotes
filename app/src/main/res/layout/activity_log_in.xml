@@ -85,6 +85,7 @@
             android:layout_marginEnd="33dp"
             android:background="@drawable/bg_white_rounded"
             android:hint="Пароль"
+            android:inputType="textPassword"
             android:textSize="16sp" />
 
         <Button
@@ -94,6 +95,8 @@
             android:layout_above="@+id/password"
             android:layout_marginBottom="-164dp"
             android:backgroundTint="#08DE9E"
+            android:layout_marginLeft="22dp"
+            android:layout_marginRight="22dp"
             android:text="ВХОД"
             android:textColor="#5D5C5C"
             android:textSize="20sp"

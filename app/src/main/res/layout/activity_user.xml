@@ -54,10 +54,11 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="445dp"
+            android:layout_height="475dp"
             android:layout_margin="20dp"
             android:layout_marginBottom="25dp"
             android:background="@drawable/bg_background">
+
 
                 <EditText
                     android:id="@+id/login"
@@ -66,14 +67,13 @@
                     android:layout_above="@+id/mail"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginStart="28dp"
+                    android:layout_marginStart="37dp"
                     android:layout_marginTop="20sp"
-                    android:layout_marginEnd="33dp"
-                    android:layout_marginBottom="14dp"
+                    android:layout_marginEnd="37dp"
+                    android:layout_marginBottom="12dp"
                     android:background="@drawable/bg_white_rounded"
                     android:hint="Логин"
                     android:textSize="16sp" />
-
 
                 <EditText
                     android:id="@+id/mail"
@@ -82,10 +82,10 @@
                     android:layout_above="@+id/password"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginStart="28dp"
+                    android:layout_marginStart="37dp"
                     android:layout_marginTop="20sp"
-                    android:layout_marginEnd="33dp"
-                    android:layout_marginBottom="14dp"
+                    android:layout_marginEnd="37dp"
+                    android:layout_marginBottom="12dp"
                     android:background="@drawable/bg_white_rounded"
                     android:hint="Адрес электронной почты"
                     android:textSize="16sp" />
@@ -94,15 +94,31 @@
                     android:id="@+id/password"
                     android:layout_width="310dp"
                     android:layout_height="60dp"
+                    android:layout_above="@+id/password2"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="37dp"
+                    android:layout_marginTop="20sp"
+                    android:layout_marginEnd="37dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/bg_white_rounded"
+                    android:hint="Пароль"
+                    android:inputType="textPassword"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/password2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
                     android:layout_above="@+id/reg_btn"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginStart="28dp"
+                    android:layout_marginStart="37dp"
                     android:layout_marginTop="20sp"
-                    android:layout_marginEnd="33dp"
-                    android:layout_marginBottom="40dp"
+                    android:layout_marginEnd="37dp"
+                    android:layout_marginBottom="12dp"
                     android:background="@drawable/bg_white_rounded"
-                    android:hint="Пароль"
+                    android:hint="Повтор пароль"
                     android:inputType="textPassword"
                     android:textSize="16sp" />
 
@@ -116,7 +132,7 @@
                     android:layout_marginStart="22dp"
                     android:layout_marginTop="22sp"
                     android:layout_marginEnd="22dp"
-                    android:layout_marginBottom="38dp"
+                    android:layout_marginBottom="37dp"
                     android:backgroundTint="#08DE9E"
                     android:text="ЗАРЕГИСТРИРОВАТЬСЯ"
                     android:textColor="#5D5C5C"
