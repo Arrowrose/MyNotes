@@ -30,15 +30,15 @@ public abstract class RoomDB  extends RoomDatabase {
 
     public abstract UserDao userDao();
 
-    public abstract ProfilePhotoDao profilePhotoDao();
-
     public abstract  NotesDao notesDao();
 
-    public abstract  ImageDao imageDao();
+    //public abstract ProfilePhotoDao profilePhotoDao();
 
-    public abstract NoteImageDao noteImageDao();
+   // public abstract  ImageDao imageDao();
 
-    public Object getSerializableExtra(String users) {
-        return null;
-    }
+    //public abstract NoteImageDao noteImageDao();
+
+    //public Object getSerializableExtra(String users) {
+        //return null;
+   // }
 }
